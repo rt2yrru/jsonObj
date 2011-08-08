@@ -4,6 +4,8 @@ JsonObj::Application.routes.draw do
     
     collection do
       get :load_more
+      get :temp_authenticate
+      get :temp_unauthenticate
     end
   
   end

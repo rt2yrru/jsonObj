@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   
+  before_filter :authenticate, :only => [:new, :create, :edit, :update]
   caches_page :index, :load_more
   
   def index
@@ -27,6 +28,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
     if @article.save
       expire_stale_pages
+      expire_fragment(:action => 'index', :action_suffix => 'featured')
       redirect_to(@article, :notice => 'Article was successfully created.')
     else
       render :action => "new"
@@ -49,11 +51,29 @@ class ArticlesController < ApplicationController
     redirect_to(articles_url)
   end
   
+  def temp_authenticate
+    session[:authenticated] = true
+    expire_page articles_path
+    expire_fragment(:action => 'index', :action_suffix => 'authenticate')
+    redirect_to(articles_path)
+  end
+  
+  def temp_unauthenticate
+    session[:authenticated] = false
+    expire_page articles_path
+    expire_fragment(:action => 'index', :action_suffix => 'authenticate')
+    redirect_to(articles_path)
+  end
+  
   private
   
   def expire_stale_pages
     expire_page articles_path
     expire_page load_more_articles_path(:format => :js)
+  end
+  
+  def authenticate
+    redirect_to(articles_path, :notice => 'Unauthenticated!') unless session[:authenticated] == true
   end
   
 end
