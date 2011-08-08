@@ -1,0 +1,2 @@
+The application is currently saving the articles.
+The 'Load more' link is using the cached articles json objects to display the articles one by one. 
