@@ -2,9 +2,14 @@ class ArticlesController < ApplicationController
   
   before_filter :authenticate, :only => [:new, :create, :edit, :update]
   caches_page :index, :load_more
+  caches_action :paginated, :cache_path => Proc.new { |c| c.params }
   
   def index
     @articles = Article.limit(1)
+  end
+  
+  def paginated
+    @articles = Article.all.paginate(:page => params[:page], :per_page => 2)
   end
 
   def load_more

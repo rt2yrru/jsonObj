@@ -6,6 +6,7 @@ JsonObj::Application.routes.draw do
       get :load_more
       get :temp_authenticate
       get :temp_unauthenticate
+      get :paginated
     end
   
   end

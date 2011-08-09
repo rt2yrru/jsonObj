@@ -1,0 +1,12 @@
+<div id='articleContainer'>
+  <% @articles.each do |article| %>
+    <div class='article'>
+      <span class='title'><%= article.title %></span>
+      <p><%= raw article.body %></p>
+      <span class='author'><%= article.author %></span>
+    </div>
+    <hr/>
+  <% end %>
+</div>
+<%= will_paginate(@articles) %>
+<%= link_to 'Back', root_path %>
