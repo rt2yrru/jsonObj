@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   cache_sweeper :article_sweeper
   
   def index
-    @articles = Article.first_to_display
+    @articles = Article.first_to_display.to_a
     @featured_article = Article.featured
   end
   

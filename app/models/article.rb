@@ -7,8 +7,8 @@ class Article < CachedModel
   end
   
   def self.first_to_display
-    Rails.cache.fetch("featured", :expires_in => 30.minutes) do
-      limit(1)
+    Rails.cache.fetch("first_to_display", :expires_in => 30.minutes) do
+      limit(1).to_a
     end
   end
     
