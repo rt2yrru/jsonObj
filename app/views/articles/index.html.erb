@@ -24,7 +24,6 @@
 <br/>
 
 <% cache(:action => 'index', :action_suffix => 'featured') do %>
-  <% @featured_article = Article.last %>
   <h3>Fragment Caching Example</h3>
   <h4>Featured Article : Displaying Latest Article</h4>
   <span class='title'><%= @featured_article.title %></span>

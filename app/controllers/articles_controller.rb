@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
   cache_sweeper :article_sweeper
   
   def index
-    @articles = Article.limit(1)
+    @articles = Article.first_to_display
+    @featured_article = Article.featured
   end
   
   def paginated
@@ -73,5 +74,5 @@ class ArticlesController < ApplicationController
   def authenticate
     redirect_to(articles_path, :notice => 'Unauthenticated!') unless session[:authenticated] == true
   end
-  
+    
 end

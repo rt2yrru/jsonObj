@@ -8,6 +8,8 @@ gem 'rails', '3.0.7'
 gem 'mysql2'
 gem 'jquery-rails'
 gem 'will_paginate'
+gem 'cached_model'
+gem 'memcache-client'
 
 # Use unicorn as the web server
 # gem 'unicorn'
