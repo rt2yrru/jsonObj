@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_filter :authenticate, :only => [:new, :create, :edit, :update]
   caches_page :index, :load_more
   caches_action :paginated, :cache_path => Proc.new { |c| c.params }
+  cache_sweeper :article_sweeper
   
   def index
     @articles = Article.limit(1)
@@ -32,8 +33,6 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(params[:article])
     if @article.save
-      expire_stale_pages
-      expire_fragment(:action => 'index', :action_suffix => 'featured')
       redirect_to(@article, :notice => 'Article was successfully created.')
     else
       render :action => "new"
@@ -43,7 +42,6 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(params[:article])
-      expire_stale_pages
       redirect_to(@article, :notice => 'Article was successfully updated.')
     else
       render :action => "edit"
@@ -71,11 +69,6 @@ class ArticlesController < ApplicationController
   end
   
   private
-  
-  def expire_stale_pages
-    expire_page articles_path
-    expire_page load_more_articles_path(:format => :js)
-  end
   
   def authenticate
     redirect_to(articles_path, :notice => 'Unauthenticated!') unless session[:authenticated] == true
