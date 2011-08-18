@@ -36,8 +36,17 @@ GEM
       activerecord (>= 1.14.4)
       hoe (>= 1.1.2)
       memcache-client (>= 1.1.0)
+    capistrano (2.6.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    faker (0.9.5)
+      i18n (~> 0.4)
+    highline (1.6.2)
     hoe (2.11.0)
       rake (~> 0.8)
     i18n (0.5.0)
@@ -52,6 +61,13 @@ GEM
     memcache-client (1.8.5)
     mime-types (1.16)
     mysql2 (0.2.7)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.1.4)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     polyglot (0.3.1)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -83,6 +99,8 @@ PLATFORMS
 
 DEPENDENCIES
   cached_model
+  capistrano
+  faker
   jquery-rails
   memcache-client
   mysql2

@@ -4,7 +4,6 @@ class ArticleSweeper < ActionController::Caching::Sweeper
   
   def after_create(article)
     expire_stale_pages
-    expire_fragment(:controller => 'articles', :action => 'index', :action_suffix => 'featured')
   end
   
   def after_update(article)
@@ -14,8 +13,10 @@ class ArticleSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_stale_pages
+    expire_fragment(:controller => 'articles', :action => 'index', :action_suffix => 'featured')
     expire_page articles_path
     expire_page load_more_articles_path(:format => :js)
+    expire_action(:controller => 'articles', :action => :paginated, :cache_path => Proc.new { |c| c.params })
   end
   
 end

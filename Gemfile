@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'cached_model'
 gem 'memcache-client'
+gem 'capistrano'
+gem 'faker'
 
 # Use unicorn as the web server
 # gem 'unicorn'
