@@ -17,11 +17,12 @@ set :user, 'ubuntu'
 set :use_sudo, false
 set :deploy_to, "/home/ubuntu/apps/jsonObj"
 
-set :location, "ec2-50-16-156-216.compute-1.amazonaws.com"
-role :web,      location
-role :app,      location
-role :db,       location, :primary => true
-role :memcache, location
+set :location1, "ec2-50-16-156-216.compute-1.amazonaws.com"
+set :location2, "ec2-174-129-113-128.compute-1.amazonaws.com"
+role :web,      location1, location2
+role :app,      location1, location2
+role :db,       location1, location2, :primary => true
+role :memcache, location1, location2
 
 set :rails_env, "production"
 

@@ -1,4 +1,4 @@
-class Article < CachedModel
+class Article < ActiveRecord::Base
   
   def self.featured
     last
