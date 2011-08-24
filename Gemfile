@@ -12,6 +12,7 @@ gem 'cached_model'
 gem 'memcache-client'
 gem 'capistrano'
 gem 'faker'
+gem "seamless_database_pool", :git => "git://github.com/wbharding/seamless_database_pool.git"
 
 # Use unicorn as the web server
 # gem 'unicorn'

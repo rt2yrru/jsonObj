@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/wbharding/seamless_database_pool.git
+  revision: 5909c7f3e286e14fa452ed27f6a0ad3d303e4a81
+  specs:
+    seamless_database_pool (1.0.6)
+      activerecord (>= 2.2.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -105,4 +112,5 @@ DEPENDENCIES
   memcache-client
   mysql2
   rails (= 3.0.7)
+  seamless_database_pool!
   will_paginate
