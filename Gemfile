@@ -13,6 +13,7 @@ gem 'memcache-client'
 gem 'capistrano'
 gem 'faker'
 gem "seamless_database_pool", :git => "git://github.com/wbharding/seamless_database_pool.git"
+gem 'activerecord-alt-mongo-adapter'
 
 # Use unicorn as the web server
 # gem 'unicorn'

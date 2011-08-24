@@ -32,6 +32,8 @@ GEM
       activesupport (= 3.0.7)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
+    activerecord-alt-mongo-adapter (0.1.0)
+      activerecord
     activeresource (3.0.7)
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
@@ -105,6 +107,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-alt-mongo-adapter
   cached_model
   capistrano
   faker

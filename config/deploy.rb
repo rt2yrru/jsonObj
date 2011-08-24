@@ -1,4 +1,4 @@
-#require 'bundler/capistrano'
+require 'bundler/capistrano'
 
 set(:application) { "jsonObj" }
 
@@ -22,7 +22,7 @@ set :location2, "ec2-174-129-113-128.compute-1.amazonaws.com"
 role :web,      location1, location2
 role :app,      location1, location2
 role :db,       location1, location2, :primary => true
-role :memcache, location1, location2
+role :memcache, "jsoncache.6hkbzr.0001.use1.cache.amazonaws.com"
 
 set :rails_env, "production"
 
