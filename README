@@ -1,2 +1,11 @@
 The application is currently saving the articles.
 The 'Load more' link is using the cached articles json objects to display the articles one by one. 
+
+
+This repository has been archived as the original author and maintainer has left the development of/abandoned  this project
+
+This repository also has dependency issue and fails github`s coverity check,so it would be best to search for a new alternative 
+which fulfils its need.
+
+
+
